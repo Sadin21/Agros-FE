@@ -1,9 +1,14 @@
+import { useContext } from "react"
 import Footer from "../components/Footer"
 import { InputForm, InputForm2 } from "../components/InputForm"
 import { MainText } from "../components/MainText"
 import Navbar from "../components/Navbar"
+import { GlobalContext } from "../contexts/GlobalContext"
 
 function Login() {
+
+  const { handleInputLogin, handleLogin, login } = useContext(GlobalContext)
+
   return (
     <>
       <Navbar />
@@ -11,34 +16,14 @@ function Login() {
         <section className="mb-20">
           <MainText text1={"Masuk Sekarang"} />
           <p className="text-sm md:text-lg py-4 md:py-8">Masuk dan nikmati fitur kami</p>
-          <form className="w-full">
+          <form className="w-full" onSubmit={handleLogin}>
             <div className="md:flex md:gap-5">
-              <InputForm title={"Email"} value={""} onChange={""} type={"text"} name={"email"} placeholder={"Contoh: bambang@gmail.com"}  />
-              <InputForm2 title2={"Password"} value2={""} onChange2={""} type2={"password"} name2={"pasword"} placeholder2={"******"}  />
+              <InputForm title={"Email"} value={login.email} onChange={handleInputLogin} type={"text"} name={"email"} placeholder={"Contoh: bambang@gmail.com"}  />
+              <InputForm2 title2={"Password"} value2={login.password} onChange2={handleInputLogin} type2={"password"} name2={"password"} placeholder2={""}  />
             </div>
-            {/* <div className="md:flex w-full gap-4">
-              <div className="md:w-1/2">
-                <h1 className="font-bold">Email</h1>
-                <input
-                  type="text"
-                  id='"form-subscribe-Subscribe'
-                  className=" rounded-lg border-1 flex-1 appearance-none border border-gray-400 w-full p-4 mt-4 mb-4 md:mb-8 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#459467] focus:border-1"
-                  placeholder="Email"
-                />
-              </div>
-              <div className="md:w-1/2">
-                <h1 className="font-bold">Password</h1>
-                <input
-                  type="text"
-                  id='"form-subscribe-Subscribe'
-                  className=" rounded-lg border-1 flex-1 appearance-none border border-gray-400 w-full p-4 mt-4 mb-8 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#459467] focus:border-1"
-                  placeholder="Email"
-                />
-              </div>
-            </div> */}
             <button
               className="w-full md:w-1/2 p-4 text-base font-semibold text-white bg-[#459467] rounded-lg shadow-md md:me-10"
-              type="submit"
+              type={'submit'}
             >
               Masuk Sekarang
             </button>
