@@ -88,7 +88,7 @@ export const GlobalProvider = (props) => {
       setErrorPassword(false);
       setFetchStatus(true);
       console.log(register);
-      axios.post("http://127.0.01:8000/api/auth/register", register, {
+      axios.post("http://emdeapp.my.id/api/auth/register", register, {
         headers: {
           "Authorization": "Bearer " + Cookies.get('token')
         }
@@ -119,7 +119,7 @@ export const GlobalProvider = (props) => {
 
   const fetchMyData = (event) => {
 
-    axios.get(`http://127.0.01:8000/api/customer/me`, {
+    axios.get(`http://emdeapp.my.id/api/customer/me`, {
         headers: {
           "Authorization": "Bearer " + Cookies.get('token')
         }
@@ -134,7 +134,7 @@ export const GlobalProvider = (props) => {
   }
 
   const fetchUserData = (event) => {
-    axios.get(`http://127.0.01:8000/api/customer/query`, {
+    axios.get(`http://emdeapp.my.id/api/customer/query`, {
       headers: {
         "Authorization": "Bearer " + Cookies.get('token')
       }
@@ -149,7 +149,7 @@ export const GlobalProvider = (props) => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://127.0.01:8000/api/customer/delete/${id}`, {
+    axios.delete(`http://emdeapp.my.id/api/customer/delete/${id}`, {
       headers: {
         "Authorization": "Bearer " + Cookies.get('token')
       }
